@@ -15,7 +15,7 @@ $youtube_feed_xml = simplexml_load_string($youtube_feed_string);
 $latest_feeds = [];
 foreach($youtube_feed_xml->entry as $item) {
   $title = (string)$item->title;
-  if (strpos($title, 'Църква София "В" - Слатина - На Живо') !== false) {
+  if (strpos(mb_strtolower($title), 'на живо') !== false) {
     // Skip live stream URLs
     continue;
   }
